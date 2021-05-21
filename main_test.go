@@ -14,7 +14,8 @@ func Test_normalizeFileName(t *testing.T) {
 		{name: "Remover acentos minúsculos", args: args{fileName: "joãofuraçãoéíó.txt"}, want: "joaofuracaoeio.txt"},
 		{name: "Remover acentos maiúsculos", args: args{fileName: "JOÃOFURAÇÃOÉÍÓ.txt"}, want: "JOAOFURACAOEIO.txt"},
 		{name: "Trocar espaços por underline", args: args{fileName: "nome do arquivo.txt"}, want: "nome_do_arquivo.txt"},
-		{name: "Todas as regras anteriores", args: args{fileName: "JOÃO furação áéíóú ÁÉÍÓÚ.txt"}, want: "JOAO_furacao_aeiou_AEIOU.txt"},
+		{name: "Trocar parenteses para underline", args: args{fileName: "JOÃO(furação)áéíóú((ÁÉÍÓÚ)(1).txt"}, want: "JOAO_furacaoaeiou__AEIOU_1.txt"},
+		{name: "Todas as regras anteriores", args: args{fileName: "JOÃO (furação) áéíóú ÁÉÍÓÚ(1).txt"}, want: "JOAO__furacao_aeiou_AEIOU_1.txt"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

@@ -49,5 +49,7 @@ func normalizeFileName(fileName string) string {
 	t := transform.Chain(norm.NFD, runes.Remove(runes.In(unicode.Mn)), norm.NFC)
 	fileNameNormalized, _, _ := transform.String(t, fileName)
 	fileNameNormalized = strings.ReplaceAll(fileNameNormalized, " ", "_")
+	fileNameNormalized = strings.ReplaceAll(fileNameNormalized, "(", "_")
+	fileNameNormalized = strings.ReplaceAll(fileNameNormalized, ")", "")
 	return fileNameNormalized
 }
