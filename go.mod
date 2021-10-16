@@ -1,4 +1,4 @@
-module file-normalize
+module github.com/eduardohitek/go-file-normalizer
 
 go 1.16
 
