@@ -15,3 +15,7 @@ func init() {
 
 	rootCmd.AddCommand(rename.RenameCmd)
 }
+
+func Execute() error {
+	return rootCmd.Execute()
+}
